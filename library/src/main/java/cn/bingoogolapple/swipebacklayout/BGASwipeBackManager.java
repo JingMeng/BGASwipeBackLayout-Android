@@ -19,7 +19,7 @@ package cn.bingoogolapple.swipebacklayout;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.SurfaceView;
 import android.view.View;
 import android.webkit.WebView;
@@ -30,16 +30,16 @@ import java.util.Set;
 import java.util.Stack;
 
 /**
- * 作者:王浩 邮件:bingoogolapple@gmail.com
- * 创建时间:16/12/28 下午11:42
- * 描述:
+ * 浣滆€?鐜嬫旦 閭欢:bingoogolapple@gmail.com
+ * 鍒涘缓鏃堕棿:16/12/28 涓嬪崍11:42
+ * 鎻忚堪:
  */
 class BGASwipeBackManager implements Application.ActivityLifecycleCallbacks {
     private static final BGASwipeBackManager sInstance = new BGASwipeBackManager();
     private Stack<Activity> mActivityStack = new Stack<>();
     private Set<Class<? extends View>> mProblemViewClassSet = new HashSet<>();
     /**
-     * 是否使用透明主题模式
+     * 鏄惁浣跨敤閫忔槑涓婚妯″紡
      */
     private boolean mIsTranslucent = false;
 
@@ -92,7 +92,7 @@ class BGASwipeBackManager implements Application.ActivityLifecycleCallbacks {
     }
 
     /**
-     * 获取倒数第二个 Activity
+     * 鑾峰彇鍊掓暟绗簩涓?Activity
      *
      * @return
      */
@@ -106,10 +106,8 @@ class BGASwipeBackManager implements Application.ActivityLifecycleCallbacks {
                 if (currentActivity.equals(activity)) {
                     int index = mActivityStack.indexOf(currentActivity);
                     if (index > 0) {
-                        // 处理内存泄漏或最后一个 Activity 正在 finishing 的情况
                         activity = mActivityStack.get(index - 1);
                     } else if (mActivityStack.size() == 2) {
-                        // 处理屏幕旋转后 mActivityStack 中顺序错乱
                         activity = mActivityStack.lastElement();
                     }
                 }
@@ -120,7 +118,7 @@ class BGASwipeBackManager implements Application.ActivityLifecycleCallbacks {
     }
 
     /**
-     * 滑动返回是否可用
+     * 婊戝姩杩斿洖鏄惁鍙敤
      *
      * @return
      */

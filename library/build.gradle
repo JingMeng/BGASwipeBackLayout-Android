@@ -1,8 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'cn.bingoogolapple.swipebacklayout'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
     compileSdkVersion ANDROID_BUILD_SDK_VERSION as int
-    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
         minSdkVersion ANDROID_BUILD_MIN_SDK_VERSION as int
@@ -11,7 +15,7 @@ android {
 }
 
 dependencies {
-    provided 'com.android.support:support-v4:25.3.1'
+    compileOnly 'androidx.legacy:legacy-support-v4:1.0.0'
 }
 
 // gradle clean build bintrayUpload

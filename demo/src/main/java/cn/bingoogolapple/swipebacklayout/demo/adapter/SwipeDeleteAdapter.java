@@ -1,6 +1,6 @@
-package cn.bingoogolapple.swipebacklayout.demo.adapter;
+﻿package cn.bingoogolapple.swipebacklayout.demo.adapter;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +12,13 @@ import cn.bingoogolapple.swipebacklayout.demo.model.NormalModel;
 import cn.bingoogolapple.swipeitemlayout.BGASwipeItemLayout;
 
 /**
- * 作者:王浩 邮件:bingoogolapple@gmail.com
- * 创建时间:17/1/11 上午2:48
- * 描述:
+ * 浣滆€?鐜嬫旦 閭欢:bingoogolapple@gmail.com
+ * 鍒涘缓鏃堕棿:17/1/11 涓婂崍2:48
+ * 鎻忚堪:
  */
 public class SwipeDeleteAdapter extends BGARecyclerViewAdapter<NormalModel> {
     /**
-     * 当前处于打开状态的item
+     * 褰撳墠澶勪簬鎵撳紑鐘舵€佺殑item
      */
     private List<BGASwipeItemLayout> mOpenedSil = new ArrayList<>();
 

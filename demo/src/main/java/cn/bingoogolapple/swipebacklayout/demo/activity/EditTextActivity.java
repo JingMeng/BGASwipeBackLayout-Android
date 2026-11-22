@@ -1,7 +1,7 @@
-package cn.bingoogolapple.swipebacklayout.demo.activity;
+﻿package cn.bingoogolapple.swipebacklayout.demo.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -41,13 +41,13 @@ public class EditTextActivity extends BaseActivity {
         mContentAdapter.setOnRVItemClickListener(new BGAOnRVItemClickListener() {
             @Override
             public void onRVItemClick(ViewGroup parent, View itemView, int position) {
-                Toast.makeText(parent.getContext(), "点击了条目 " + (position + 1), Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "鐐瑰嚮浜嗘潯鐩?" + (position + 1), Toast.LENGTH_SHORT).show();
             }
         });
         mContentAdapter.setOnRVItemLongClickListener(new BGAOnRVItemLongClickListener() {
             @Override
             public boolean onRVItemLongClick(ViewGroup parent, View itemView, int position) {
-                Toast.makeText(parent.getContext(), "长按了条目 " + (position + 1), Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "闀挎寜浜嗘潯鐩?" + (position + 1), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -80,8 +80,9 @@ public class EditTextActivity extends BaseActivity {
     private void initToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("测试 EditText 位于底部的情况");
+        getSupportActionBar().setTitle("娴嬭瘯 EditText 浣嶄簬搴曢儴鐨勬儏鍐?);
         setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
 }
+

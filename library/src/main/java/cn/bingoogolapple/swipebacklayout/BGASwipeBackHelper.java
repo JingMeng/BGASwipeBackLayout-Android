@@ -19,30 +19,26 @@ package cn.bingoogolapple.swipebacklayout;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.FloatRange;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.FloatRange;
 import android.view.View;
 
 import java.util.List;
 
 /**
- * 作者:王浩 邮件:bingoogolapple@gmail.com
- * 创建时间:17/1/4 下午3:44
- * 描述:滑动返回帮助类
- */
+ * 浣滆€?鐜嬫旦 閭欢:bingoogolapple@gmail.com
+ * 鍒涘缓鏃堕棿:17/1/4 涓嬪崍3:44
+ * 鎻忚堪:婊戝姩杩斿洖甯姪绫? */
 public class BGASwipeBackHelper {
     private Activity mActivity;
     private Delegate mDelegate;
     private BGASwipeBackLayout mSwipeBackLayout;
 
     /**
-     * 必须在 Application 的 onCreate 方法中调用
-     *
-     * @param application          应用程序上下文
-     * @param isTranslucent        是否使用透明主题模式
-     * @param problemViewClassList 使用非透明主题时，如果发现滑动返回后立即触摸界面时应用崩溃，
-     *                             请把该界面里比较特殊的 View 的 class 添加到该集合中，
-     *                             目前在库中已经添加了 WebView 和 SurfaceView
+     * 蹇呴』鍦?Application 鐨?onCreate 鏂规硶涓皟鐢?     *
+     * @param application          搴旂敤绋嬪簭涓婁笅鏂?     * @param isTranslucent        鏄惁浣跨敤閫忔槑涓婚妯″紡
+     * @param problemViewClassList 浣跨敤闈為€忔槑涓婚鏃讹紝濡傛灉鍙戠幇婊戝姩杩斿洖鍚庣珛鍗宠Е鎽哥晫闈㈡椂搴旂敤宕╂簝锛?     *                             璇锋妸璇ョ晫闈㈤噷姣旇緝鐗规畩鐨?View 鐨?class 娣诲姞鍒拌闆嗗悎涓紝
+     *                             鐩墠鍦ㄥ簱涓凡缁忔坊鍔犱簡 WebView 鍜?SurfaceView
      */
     public static void init(Application application, boolean isTranslucent, List<Class<? extends View>> problemViewClassList) {
         BGASwipeBackManager.getInstance().init(application, isTranslucent, problemViewClassList);
@@ -60,8 +56,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 初始化滑动返回
-     */
+     * 鍒濆鍖栨粦鍔ㄨ繑鍥?     */
     private void initSwipeBackFinish() {
         if (mDelegate.isSupportSwipeBack()) {
             mSwipeBackLayout = new BGASwipeBackLayout(mActivity);
@@ -69,7 +64,6 @@ public class BGASwipeBackHelper {
             mSwipeBackLayout.setPanelSlideListener(new BGASwipeBackLayout.PanelSlideListener() {
                 @Override
                 public void onPanelSlide(View panel, float slideOffset) {
-                    // 开始滑动返回时关闭软键盘
                     if (slideOffset < 0.03) {
                         BGAKeyboardUtil.closeKeyboard(mActivity);
                     }
@@ -91,7 +85,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 设置滑动返回是否可用。默认值为 true
+     * 璁剧疆婊戝姩杩斿洖鏄惁鍙敤銆傞粯璁ゅ€间负 true
      *
      * @param swipeBackEnable
      * @return
@@ -104,7 +98,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 设置是否仅仅跟踪左侧边缘的滑动返回。默认值为 true
+     * 璁剧疆鏄惁浠呬粎璺熻釜宸︿晶杈圭紭鐨勬粦鍔ㄨ繑鍥炪€傞粯璁ゅ€间负 true
      *
      * @param isOnlyTrackingLeftEdge
      * @return
@@ -117,7 +111,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 设置是否是微信滑动返回样式。默认值为 true
+     * 璁剧疆鏄惁鏄井淇℃粦鍔ㄨ繑鍥炴牱寮忋€傞粯璁ゅ€间负 true
      *
      * @param isWeChatStyle
      * @return
@@ -130,7 +124,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 设置阴影资源 id。默认值为 R.drawable.bga_sbl_shadow
+     * 璁剧疆闃村奖璧勬簮 id銆傞粯璁ゅ€间负 R.drawable.bga_sbl_shadow
      *
      * @param shadowResId
      * @return
@@ -143,7 +137,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 设置是否显示滑动返回的阴影效果。默认值为 true
+     * 璁剧疆鏄惁鏄剧ず婊戝姩杩斿洖鐨勯槾褰辨晥鏋溿€傞粯璁ゅ€间负 true
      *
      * @param isNeedShowShadow
      * @return
@@ -156,7 +150,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 设置阴影区域的透明度是否根据滑动的距离渐变。默认值为 true
+     * 璁剧疆闃村奖鍖哄煙鐨勯€忔槑搴︽槸鍚︽牴鎹粦鍔ㄧ殑璺濈娓愬彉銆傞粯璁ゅ€间负 true
      *
      * @param isShadowAlphaGradient
      * @return
@@ -169,7 +163,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 设置触发释放后自动滑动返回的阈值，默认值为 0.3f
+     * 璁剧疆瑙﹀彂閲婃斁鍚庤嚜鍔ㄦ粦鍔ㄨ繑鍥炵殑闃堝€硷紝榛樿鍊间负 0.3f
      *
      * @param threshold
      */
@@ -181,8 +175,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 设置底部导航条是否悬浮在内容上
-     *
+     * 璁剧疆搴曢儴瀵艰埅鏉℃槸鍚︽偓娴湪鍐呭涓?     *
      * @param overlap
      */
     public BGASwipeBackHelper setIsNavigationBarOverlap(boolean overlap) {
@@ -193,7 +186,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 是否正在滑动
+     * 鏄惁姝ｅ湪婊戝姩
      *
      * @return
      */
@@ -205,51 +198,45 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 执行跳转到下一个 Activity 的动画
-     */
+     * 鎵ц璺宠浆鍒颁笅涓€涓?Activity 鐨勫姩鐢?     */
     public void executeForwardAnim() {
         executeForwardAnim(mActivity);
     }
 
     /**
-     * 执行回到到上一个 Activity 的动画
-     */
+     * 鎵ц鍥炲埌鍒颁笂涓€涓?Activity 鐨勫姩鐢?     */
     public void executeBackwardAnim() {
         executeBackwardAnim(mActivity);
     }
 
     /**
-     * 执行滑动返回到到上一个 Activity 的动画
-     */
+     * 鎵ц婊戝姩杩斿洖鍒板埌涓婁竴涓?Activity 鐨勫姩鐢?     */
     public void executeSwipeBackAnim() {
         executeSwipeBackAnim(mActivity);
     }
 
     /**
-     * 执行跳转到下一个 Activity 的动画。这里弄成静态方法，方便在 Fragment 中调用
-     */
+     * 鎵ц璺宠浆鍒颁笅涓€涓?Activity 鐨勫姩鐢汇€傝繖閲屽紕鎴愰潤鎬佹柟娉曪紝鏂逛究鍦?Fragment 涓皟鐢?     */
     public static void executeForwardAnim(Activity activity) {
         activity.overridePendingTransition(R.anim.bga_sbl_activity_forward_enter, R.anim.bga_sbl_activity_forward_exit);
     }
 
     /**
-     * 执行回到到上一个 Activity 的动画。这里弄成静态方法，方便在 Fragment 中调用
-     */
+     * 鎵ц鍥炲埌鍒颁笂涓€涓?Activity 鐨勫姩鐢汇€傝繖閲屽紕鎴愰潤鎬佹柟娉曪紝鏂逛究鍦?Fragment 涓皟鐢?     */
     public static void executeBackwardAnim(Activity activity) {
         activity.overridePendingTransition(R.anim.bga_sbl_activity_backward_enter, R.anim.bga_sbl_activity_backward_exit);
     }
 
     /**
-     * 执行滑动返回到到上一个 Activity 的动画。这里弄成静态方法，方便在 Fragment 中调用
-     */
+     * 鎵ц婊戝姩杩斿洖鍒板埌涓婁竴涓?Activity 鐨勫姩鐢汇€傝繖閲屽紕鎴愰潤鎬佹柟娉曪紝鏂逛究鍦?Fragment 涓皟鐢?     */
     public static void executeSwipeBackAnim(Activity activity) {
         activity.overridePendingTransition(R.anim.bga_sbl_activity_swipeback_enter, R.anim.bga_sbl_activity_swipeback_exit);
     }
 
     /**
-     * 跳转到下一个 Activity，并且销毁当前 Activity
+     * 璺宠浆鍒颁笅涓€涓?Activity锛屽苟涓旈攢姣佸綋鍓?Activity
      *
-     * @param cls 下一个 Activity 的 Class
+     * @param cls 涓嬩竴涓?Activity 鐨?Class
      */
     public void forwardAndFinish(Class<?> cls) {
         forward(cls);
@@ -257,9 +244,9 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 跳转到下一个 Activity，不销毁当前 Activity
+     * 璺宠浆鍒颁笅涓€涓?Activity锛屼笉閿€姣佸綋鍓?Activity
      *
-     * @param cls 下一个 Activity 的 Class
+     * @param cls 涓嬩竴涓?Activity 鐨?Class
      */
     public void forward(Class<?> cls) {
         BGAKeyboardUtil.closeKeyboard(mActivity);
@@ -268,30 +255,27 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 跳转到下一个 Activity，不销毁当前 Activity
+     * 璺宠浆鍒颁笅涓€涓?Activity锛屼笉閿€姣佸綋鍓?Activity
      *
-     * @param cls         下一个 Activity 的 Class
-     * @param requestCode 请求码
-     */
+     * @param cls         涓嬩竴涓?Activity 鐨?Class
+     * @param requestCode 璇锋眰鐮?     */
     public void forward(Class<?> cls, int requestCode) {
         forward(new Intent(mActivity, cls), requestCode);
     }
 
     /**
-     * 跳转到下一个 Activity，销毁当前 Activity
+     * 璺宠浆鍒颁笅涓€涓?Activity锛岄攢姣佸綋鍓?Activity
      *
-     * @param intent 下一个 Activity 的意图对象
-     */
+     * @param intent 涓嬩竴涓?Activity 鐨勬剰鍥惧璞?     */
     public void forwardAndFinish(Intent intent) {
         forward(intent);
         mActivity.finish();
     }
 
     /**
-     * 跳转到下一个 Activity,不销毁当前 Activity
+     * 璺宠浆鍒颁笅涓€涓?Activity,涓嶉攢姣佸綋鍓?Activity
      *
-     * @param intent 下一个 Activity 的意图对象
-     */
+     * @param intent 涓嬩竴涓?Activity 鐨勬剰鍥惧璞?     */
     public void forward(Intent intent) {
         BGAKeyboardUtil.closeKeyboard(mActivity);
         mActivity.startActivity(intent);
@@ -299,11 +283,9 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 跳转到下一个 Activity,不销毁当前 Activity
+     * 璺宠浆鍒颁笅涓€涓?Activity,涓嶉攢姣佸綋鍓?Activity
      *
-     * @param intent      下一个 Activity 的意图对象
-     * @param requestCode 请求码
-     */
+     * @param intent      涓嬩竴涓?Activity 鐨勬剰鍥惧璞?     * @param requestCode 璇锋眰鐮?     */
     public void forward(Intent intent, int requestCode) {
         BGAKeyboardUtil.closeKeyboard(mActivity);
         mActivity.startActivityForResult(intent, requestCode);
@@ -311,7 +293,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 回到上一个 Activity，并销毁当前 Activity
+     * 鍥炲埌涓婁竴涓?Activity锛屽苟閿€姣佸綋鍓?Activity
      */
     public void backward() {
         BGAKeyboardUtil.closeKeyboard(mActivity);
@@ -320,7 +302,7 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 滑动返回上一个 Activity，并销毁当前 Activity
+     * 婊戝姩杩斿洖涓婁竴涓?Activity锛屽苟閿€姣佸綋鍓?Activity
      */
     public void swipeBackward() {
         BGAKeyboardUtil.closeKeyboard(mActivity);
@@ -329,9 +311,8 @@ public class BGASwipeBackHelper {
     }
 
     /**
-     * 回到上一个 Activity，并销毁当前 Activity（应用场景：欢迎、登录、注册这三个界面）
-     *
-     * @param cls 上一个 Activity 的 Class
+     * 鍥炲埌涓婁竴涓?Activity锛屽苟閿€姣佸綋鍓?Activity锛堝簲鐢ㄥ満鏅細娆㈣繋銆佺櫥褰曘€佹敞鍐岃繖涓変釜鐣岄潰锛?     *
+     * @param cls 涓婁竴涓?Activity 鐨?Class
      */
     public void backwardAndFinish(Class<?> cls) {
         BGAKeyboardUtil.closeKeyboard(mActivity);
@@ -342,27 +323,27 @@ public class BGASwipeBackHelper {
 
     public interface Delegate {
         /**
-         * 是否支持滑动返回
+         * 鏄惁鏀寔婊戝姩杩斿洖
          *
          * @return
          */
         boolean isSupportSwipeBack();
 
         /**
-         * 正在滑动返回
+         * 姝ｅ湪婊戝姩杩斿洖
          *
-         * @param slideOffset 从 0 到 1
+         * @param slideOffset 浠?0 鍒?1
          */
         void onSwipeBackLayoutSlide(float slideOffset);
 
         /**
-         * 没达到滑动返回的阈值，取消滑动返回动作，回到默认状态
-         */
+         * 娌¤揪鍒版粦鍔ㄨ繑鍥炵殑闃堝€硷紝鍙栨秷婊戝姩杩斿洖鍔ㄤ綔锛屽洖鍒伴粯璁ょ姸鎬?         */
         void onSwipeBackLayoutCancel();
 
         /**
-         * 滑动返回执行完毕，销毁当前 Activity
+         * 婊戝姩杩斿洖鎵ц瀹屾瘯锛岄攢姣佸綋鍓?Activity
          */
         void onSwipeBackLayoutExecuted();
     }
 }
+

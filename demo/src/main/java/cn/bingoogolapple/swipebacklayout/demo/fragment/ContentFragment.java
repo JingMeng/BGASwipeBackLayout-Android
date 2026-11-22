@@ -1,7 +1,7 @@
-package cn.bingoogolapple.swipebacklayout.demo.fragment;
+﻿package cn.bingoogolapple.swipebacklayout.demo.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,9 +17,9 @@ import cn.bingoogolapple.swipebacklayout.demo.R;
 import cn.bingoogolapple.swipebacklayout.demo.adapter.ContentAdapter;
 
 /**
- * 作者:王浩 邮件:bingoogolapple@gmail.com
- * 创建时间:16/12/27 下午11:29
- * 描述:
+ * 浣滆€?鐜嬫旦 閭欢:bingoogolapple@gmail.com
+ * 鍒涘缓鏃堕棿:16/12/27 涓嬪崍11:29
+ * 鎻忚堪:
  */
 public class ContentFragment extends BaseFragment {
     private static final String EXTRA_POSITION = "EXTRA_POSITION";
@@ -30,7 +30,7 @@ public class ContentFragment extends BaseFragment {
     private int mPosition;
 
     /**
-     * @param position 位置
+     * @param position 浣嶇疆
      * @return
      */
     public static ContentFragment newInstance(int position) {
@@ -54,13 +54,13 @@ public class ContentFragment extends BaseFragment {
         mContentAdapter.setOnRVItemClickListener(new BGAOnRVItemClickListener() {
             @Override
             public void onRVItemClick(ViewGroup parent, View itemView, int position) {
-                Toast.makeText(parent.getContext(), "点击了条目 " + (position + 1), Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "鐐瑰嚮浜嗘潯鐩?" + (position + 1), Toast.LENGTH_SHORT).show();
             }
         });
         mContentAdapter.setOnRVItemLongClickListener(new BGAOnRVItemLongClickListener() {
             @Override
             public boolean onRVItemLongClick(ViewGroup parent, View itemView, int position) {
-                Toast.makeText(parent.getContext(), "长按了条目 " + (position + 1), Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "闀挎寜浜嗘潯鐩?" + (position + 1), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -81,9 +81,10 @@ public class ContentFragment extends BaseFragment {
 
         List<String> data = new ArrayList<>();
         for (int i = 1; i < 11; i++) {
-            data.add("第" + (mPosition + 1) + "页 标题" + i);
+            data.add("绗? + (mPosition + 1) + "椤?鏍囬" + i);
         }
         mContentAdapter.setData(data);
         mContentRv.setAdapter(mContentAdapter);
     }
 }
+

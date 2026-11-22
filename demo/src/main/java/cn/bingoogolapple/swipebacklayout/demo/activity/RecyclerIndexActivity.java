@@ -1,8 +1,8 @@
-package cn.bingoogolapple.swipebacklayout.demo.activity;
+﻿package cn.bingoogolapple.swipebacklayout.demo.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -17,12 +17,10 @@ import cn.bingoogolapple.swipebacklayout.demo.util.DataUtil;
 import cn.bingoogolapple.swipebacklayout.demo.widget.IndexView;
 
 /**
- * 作者:王浩 邮件:bingoogolapple@gmail.com
- * 创建时间:17/1/11 下午5:08
- * 描述:测试与 RecyclerView 一起使用
- * <p>
- * 「必须在 Application 的 onCreate 方法中执行 BGASwipeBackHelper.init 来初始化滑动返回」
- */
+ * 浣滆€?鐜嬫旦 閭欢:bingoogolapple@gmail.com
+ * 鍒涘缓鏃堕棿:17/1/11 涓嬪崍5:08
+ * 鎻忚堪:娴嬭瘯涓?RecyclerView 涓€璧蜂娇鐢? * <p>
+ * 銆屽繀椤诲湪 Application 鐨?onCreate 鏂规硶涓墽琛?BGASwipeBackHelper.init 鏉ュ垵濮嬪寲婊戝姩杩斿洖銆? */
 public class RecyclerIndexActivity extends BaseActivity implements BGAOnRVItemClickListener {
     private RecyclerIndexAdapter mAdapter;
     private RecyclerView mDataRv;
@@ -95,12 +93,13 @@ public class RecyclerIndexActivity extends BaseActivity implements BGAOnRVItemCl
     private void initToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("测试 RecyclerView");
+        getSupportActionBar().setTitle("娴嬭瘯 RecyclerView");
         setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
     @Override
     public void onRVItemClick(ViewGroup parent, View itemView, int position) {
-        Toast.makeText(this, "选择了城市 " + mAdapter.getItem(position).name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "閫夋嫨浜嗗煄甯?" + mAdapter.getItem(position).name, Toast.LENGTH_SHORT).show();
     }
 }
+

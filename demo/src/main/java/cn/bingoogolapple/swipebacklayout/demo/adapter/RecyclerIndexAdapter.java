@@ -1,6 +1,6 @@
-package cn.bingoogolapple.swipebacklayout.demo.adapter;
+﻿package cn.bingoogolapple.swipebacklayout.demo.adapter;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import cn.bingoogolapple.androidcommon.adapter.BGARecyclerViewAdapter;
 import cn.bingoogolapple.androidcommon.adapter.BGAViewHolderHelper;
@@ -8,9 +8,9 @@ import cn.bingoogolapple.swipebacklayout.demo.R;
 import cn.bingoogolapple.swipebacklayout.demo.model.IndexModel;
 
 /**
- * 作者:王浩 邮件:bingoogolapple@gmail.com
- * 创建时间:15/5/22 16:31
- * 描述:
+ * 浣滆€?鐜嬫旦 閭欢:bingoogolapple@gmail.com
+ * 鍒涘缓鏃堕棿:15/5/22 16:31
+ * 鎻忚堪:
  */
 public class RecyclerIndexAdapter extends BGARecyclerViewAdapter<IndexModel> {
 

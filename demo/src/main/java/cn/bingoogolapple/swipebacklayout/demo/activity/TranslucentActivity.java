@@ -1,7 +1,7 @@
-package cn.bingoogolapple.swipebacklayout.demo.activity;
+﻿package cn.bingoogolapple.swipebacklayout.demo.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -18,12 +18,11 @@ import cn.bingoogolapple.swipebacklayout.demo.R;
 import cn.bingoogolapple.swipebacklayout.demo.adapter.ContentAdapter;
 
 /**
- * 作者:王浩 邮件:bingoogolapple@gmail.com
- * 创建时间:16/12/28 上午1:06
- * 描述:Test Translucent StatusBar
+ * 浣滆€?鐜嬫旦 閭欢:bingoogolapple@gmail.com
+ * 鍒涘缓鏃堕棿:16/12/28 涓婂崍1:06
+ * 鎻忚堪:Test Translucent StatusBar
  * <p>
- * 「必须在 Application 的 onCreate 方法中执行 BGASwipeBackHelper.init 来初始化滑动返回」
- */
+ * 銆屽繀椤诲湪 Application 鐨?onCreate 鏂规硶涓墽琛?BGASwipeBackHelper.init 鏉ュ垵濮嬪寲婊戝姩杩斿洖銆? */
 public class TranslucentActivity extends BaseActivity {
     private ContentAdapter mContentAdapter;
     private RecyclerView mContentRv;
@@ -60,7 +59,7 @@ public class TranslucentActivity extends BaseActivity {
         mContentAdapter.setOnRVItemClickListener(new BGAOnRVItemClickListener() {
             @Override
             public void onRVItemClick(ViewGroup parent, View itemView, int position) {
-                Toast.makeText(parent.getContext(), "点击了条目 " + (position + 1), Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "鐐瑰嚮浜嗘潯鐩?" + (position + 1), Toast.LENGTH_SHORT).show();
                 if (position == 0) {
                     mSwipeBackHelper.forward(RecyclerIndexActivity.class);
                 }
@@ -69,16 +68,17 @@ public class TranslucentActivity extends BaseActivity {
         mContentAdapter.setOnRVItemLongClickListener(new BGAOnRVItemLongClickListener() {
             @Override
             public boolean onRVItemLongClick(ViewGroup parent, View itemView, int position) {
-                Toast.makeText(parent.getContext(), "长按了条目 " + (position + 1), Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "闀挎寜浜嗘潯鐩?" + (position + 1), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
         List<String> data = new ArrayList<>();
         data.add("RecyclerIndex");
         for (int i = 1; i < 21; i++) {
-            data.add("标题" + i);
+            data.add("鏍囬" + i);
         }
         mContentAdapter.setData(data);
         mContentRv.setAdapter(mContentAdapter);
     }
 }
+

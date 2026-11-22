@@ -1,7 +1,7 @@
-package cn.bingoogolapple.swipebacklayout.demo.activity;
+﻿package cn.bingoogolapple.swipebacklayout.demo.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -16,12 +16,10 @@ import cn.bingoogolapple.swipebacklayout.demo.adapter.SwipeDeleteAdapter;
 import cn.bingoogolapple.swipebacklayout.demo.util.DataUtil;
 
 /**
- * 作者:王浩 邮件:bingoogolapple@gmail.com
- * 创建时间:17/1/11 上午2:46
- * 描述:测试与滑动删除一起使用
- * <p>
- * 「必须在 Application 的 onCreate 方法中执行 BGASwipeBackHelper.init 来初始化滑动返回」
- */
+ * 浣滆€?鐜嬫旦 閭欢:bingoogolapple@gmail.com
+ * 鍒涘缓鏃堕棿:17/1/11 涓婂崍2:46
+ * 鎻忚堪:娴嬭瘯涓庢粦鍔ㄥ垹闄や竴璧蜂娇鐢? * <p>
+ * 銆屽繀椤诲湪 Application 鐨?onCreate 鏂规硶涓墽琛?BGASwipeBackHelper.init 鏉ュ垵濮嬪寲婊戝姩杩斿洖銆? */
 public class SwipeDeleteActivity extends BaseActivity implements BGAOnRVItemClickListener, BGAOnRVItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener {
     private SwipeDeleteAdapter mAdapter;
     private RecyclerView mDataRv;
@@ -62,7 +60,7 @@ public class SwipeDeleteActivity extends BaseActivity implements BGAOnRVItemClic
     private void initToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("测试滑动删除");
+        getSupportActionBar().setTitle("娴嬭瘯婊戝姩鍒犻櫎");
         setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
@@ -77,7 +75,7 @@ public class SwipeDeleteActivity extends BaseActivity implements BGAOnRVItemClic
     @Override
     public boolean onItemChildLongClick(ViewGroup parent, View childView, int position) {
         if (childView.getId() == R.id.tv_item_bgaswipe_delete) {
-            Toast.makeText(this, "长按了删除 " + mAdapter.getItem(position).mTitle, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "闀挎寜浜嗗垹闄?" + mAdapter.getItem(position).mTitle, Toast.LENGTH_SHORT).show();
             return true;
         }
         return false;
@@ -85,12 +83,13 @@ public class SwipeDeleteActivity extends BaseActivity implements BGAOnRVItemClic
 
     @Override
     public void onRVItemClick(ViewGroup parent, View itemView, int position) {
-        Toast.makeText(this, "点击了条目 " + mAdapter.getItem(position).mTitle, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "鐐瑰嚮浜嗘潯鐩?" + mAdapter.getItem(position).mTitle, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public boolean onRVItemLongClick(ViewGroup parent, View itemView, int position) {
-        Toast.makeText(this, "长按了条目 " + mAdapter.getItem(position).mTitle, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "闀挎寜浜嗘潯鐩?" + mAdapter.getItem(position).mTitle, Toast.LENGTH_SHORT).show();
         return true;
     }
 }
+

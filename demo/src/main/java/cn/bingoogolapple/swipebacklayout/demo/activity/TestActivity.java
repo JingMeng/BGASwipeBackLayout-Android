@@ -1,14 +1,14 @@
-package cn.bingoogolapple.swipebacklayout.demo.activity;
+﻿package cn.bingoogolapple.swipebacklayout.demo.activity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
@@ -18,12 +18,10 @@ import cn.bingoogolapple.swipebacklayout.demo.R;
 import cn.bingoogolapple.swipebacklayout.demo.fragment.ContentFragment;
 
 /**
- * 作者:王浩 邮件:bingoogolapple@gmail.com
- * 创建时间:16/12/27 下午5:35
- * 描述:测试滑动返回布局的接口
- * <p>
- * 「必须在 Application 的 onCreate 方法中执行 BGASwipeBackHelper.init 来初始化滑动返回」
- */
+ * 浣滆€?鐜嬫旦 閭欢:bingoogolapple@gmail.com
+ * 鍒涘缓鏃堕棿:16/12/27 涓嬪崍5:35
+ * 鎻忚堪:娴嬭瘯婊戝姩杩斿洖甯冨眬鐨勬帴鍙? * <p>
+ * 銆屽繀椤诲湪 Application 鐨?onCreate 鏂规硶涓墽琛?BGASwipeBackHelper.init 鏉ュ垵濮嬪寲婊戝姩杩斿洖銆? */
 public class TestActivity extends BaseActivity {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -51,7 +49,7 @@ public class TestActivity extends BaseActivity {
     private void initToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("测试滑动返回布局的接口");
+        getSupportActionBar().setTitle("娴嬭瘯婊戝姩杩斿洖甯冨眬鐨勬帴鍙?);
     }
 
     private void setUpTabLayoutAndViewPager() {
@@ -65,8 +63,7 @@ public class TestActivity extends BaseActivity {
         mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                // 测试只有ViewPager在第0页时才开启滑动返回
-                mSwipeBackHelper.setSwipeBackEnable(position == 0);
+                // 娴嬭瘯鍙湁ViewPager鍦ㄧ0椤垫椂鎵嶅紑鍚粦鍔ㄨ繑鍥?                mSwipeBackHelper.setSwipeBackEnable(position == 0);
                 mSwipeBackEnableSwitch.setChecked(position == 0);
             }
         });
@@ -77,59 +74,55 @@ public class TestActivity extends BaseActivity {
     }
 
     /**
-     * 测试滑动返回相关接口
+     * 娴嬭瘯婊戝姩杩斿洖鐩稿叧鎺ュ彛
      */
     private void testSwipeBackLayout() {
-        // 测试动态设置滑动返回是否可用
-        mSwipeBackEnableSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        // 娴嬭瘯鍔ㄦ€佽缃粦鍔ㄨ繑鍥炴槸鍚﹀彲鐢?        mSwipeBackEnableSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean swipeBackEnable) {
                 /**
-                 * 设置滑动返回是否可用
+                 * 璁剧疆婊戝姩杩斿洖鏄惁鍙敤
                  */
                 mSwipeBackHelper.setSwipeBackEnable(swipeBackEnable);
             }
         });
 
-        // 测试动态设置是否仅仅跟踪左侧边缘的滑动返回
+        // 娴嬭瘯鍔ㄦ€佽缃槸鍚︿粎浠呰窡韪乏渚ц竟缂樼殑婊戝姩杩斿洖
         ((SwitchCompat) getViewById(R.id.onlyTrackingLeftEdgeSwitch)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isOnlyTrackingLeftEdge) {
                 /**
-                 * 设置是否仅仅跟踪左侧边缘的滑动返回
-                 */
+                 * 璁剧疆鏄惁浠呬粎璺熻釜宸︿晶杈圭紭鐨勬粦鍔ㄨ繑鍥?                 */
                 mSwipeBackHelper.setIsOnlyTrackingLeftEdge(isOnlyTrackingLeftEdge);
             }
         });
 
-        // 测试动态设置是否是微信滑动返回样式
+        // 娴嬭瘯鍔ㄦ€佽缃槸鍚︽槸寰俊婊戝姩杩斿洖鏍峰紡
         ((SwitchCompat) getViewById(R.id.weChatStyleSwitch)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isWeChatStyle) {
                 /**
-                 * 设置是否是微信滑动返回样式
-                 */
+                 * 璁剧疆鏄惁鏄井淇℃粦鍔ㄨ繑鍥炴牱寮?                 */
                 mSwipeBackHelper.setIsWeChatStyle(isWeChatStyle);
             }
         });
 
-        // 测试动态设置是否显示滑动返回的阴影效果
+        // 娴嬭瘯鍔ㄦ€佽缃槸鍚︽樉绀烘粦鍔ㄨ繑鍥炵殑闃村奖鏁堟灉
         ((SwitchCompat) getViewById(R.id.needShowShadowSwitch)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isNeedShowShadow) {
                 /**
-                 * 设置是否显示滑动返回的阴影效果
-                 */
+                 * 璁剧疆鏄惁鏄剧ず婊戝姩杩斿洖鐨勯槾褰辨晥鏋?                 */
                 mSwipeBackHelper.setIsNeedShowShadow(isNeedShowShadow);
             }
         });
 
-        // 测试动态设置阴影区域的透明度是否根据滑动的距离渐变
+        // 娴嬭瘯鍔ㄦ€佽缃槾褰卞尯鍩熺殑閫忔槑搴︽槸鍚︽牴鎹粦鍔ㄧ殑璺濈娓愬彉
         ((SwitchCompat) getViewById(R.id.shadowAlphaGradientSwitch)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isShadowAlphaGradient) {
                 /**
-                 * 设置阴影区域的透明度是否根据滑动的距离渐变
+                 * 璁剧疆闃村奖鍖哄煙鐨勯€忔槑搴︽槸鍚︽牴鎹粦鍔ㄧ殑璺濈娓愬彉
                  */
                 mSwipeBackHelper.setIsShadowAlphaGradient(isShadowAlphaGradient);
             }
@@ -155,8 +148,7 @@ public class TestActivity extends BaseActivity {
     }
 
     /**
-     * 测试 ViewPager 的适配器
-     */
+     * 娴嬭瘯 ViewPager 鐨勯€傞厤鍣?     */
     private class ContentPagerAdapter extends FragmentPagerAdapter {
         private ContentFragment mOneFragment;
         private ContentFragment mTwoFragment;
@@ -193,13 +185,12 @@ public class TestActivity extends BaseActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return "第" + (position + 1) + "页";
+            return "绗? + (position + 1) + "椤?;
         }
     }
 
     /**
-     * 根据Palette提取的颜色，修改tab和toolbar以及状态栏的颜色
-     */
+     * 鏍规嵁Palette鎻愬彇鐨勯鑹诧紝淇敼tab鍜宼oolbar浠ュ強鐘舵€佹爮鐨勯鑹?     */
     private void changeTopBgColor(int position) {
         int imageResource = R.mipmap.one;
         if (position == 1) {
@@ -224,7 +215,7 @@ public class TestActivity extends BaseActivity {
     }
 
     /**
-     * 颜色加深处理
+     * 棰滆壊鍔犳繁澶勭悊
      */
     private int colorBurn(int RGBValues) {
         int red = RGBValues >> 16 & 0xFF;
@@ -236,3 +227,4 @@ public class TestActivity extends BaseActivity {
         return Color.rgb(red, green, blue);
     }
 }
+
